@@ -26,14 +26,14 @@ jobs:
         echo "aws_secret_access_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> ~/.aws/credentials
         chmod 600 ~/.aws/credentials
 
-    - name: Initialize Terraform
-      run: terraform init
+    # - name: Initialize Terraform
+    #   run: terraform init
 
-    - name: Plan
-      run: terraform plan
+    # - name: Plan
+    #   run: terraform plan
 
-    - name: Apply
-      run: terraform apply -auto-approve
+    # - name: Apply
+    #   run: terraform apply -auto-approve
 
     - name: Clean up
       run: terraform destroy -auto-approve
