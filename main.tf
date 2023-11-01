@@ -6,7 +6,7 @@ resource "aws_default_vpc" "default" {
 
 # Security group
 resource "aws_security_group" "demo_sg" {
-  name        = "demo"
+  name        = "new_demo"
   description = "allow ssh on 22 & http on port 80"
   vpc_id      = aws_default_vpc.default.id
 
