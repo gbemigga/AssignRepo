@@ -28,7 +28,7 @@ jobs:
       ENABLE_COMMENTS: true
       WORKING_DIRECTORY: './'
   plan:
-    name: "Terraform Init,Validates and Plan"
+    name: "Terraform Init,Validate and Plan"
     needs: [ kics ]
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-20.04
