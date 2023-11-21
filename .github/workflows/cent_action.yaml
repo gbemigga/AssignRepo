@@ -16,7 +16,7 @@ permissions:
   issues: write         # write permissions are needed in order to create comments
   id-token: write
 
-concurrency: dev-gbemigga    # This wills ensure only a single workflow of merge to master is run at a time
+concurrency: dev-gbemigg12   # This wills ensure only a single workflow of merge to master is run at a time
 jobs:
   kics:
     # Kics perform statics codes analysis of Infrastructure of Code (Terraform).
@@ -28,7 +28,7 @@ jobs:
       ENABLE_COMMENTS: true
       WORKING_DIRECTORY: './'
   plan:
-    name: "Terraform Init,Validate and Plan"
+    name: "Terraform Init,Validates and Plan"
     needs: [ kics ]
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-20.04
@@ -68,7 +68,7 @@ jobs:
         id: plan
         run: |
          terraform plan
-         terraform show tfplan
+         #terraform show tfplan
         continue-on-error: true
   apply:
     name: "Terraform Apply"
@@ -100,5 +100,5 @@ jobs:
         run : terraform init # run-all init -no-color --terragrunt-non-interactive
       - name: Terraform Apply
         id: apply
-        run: terraform apply #run-all apply -no-color --terragrunt-non-interactive
+        run: terraform apply -auto-approve #run-all apply -no-color --terragrunt-non-interactive
         continue-on-error: true
