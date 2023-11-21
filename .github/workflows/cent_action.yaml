@@ -10,13 +10,13 @@ on:
 env: 
   TERRAFORM_VERSION: 1.3.5
   # TERRAGRUNT_VERSION: 0.40.0
-  TERRAFORM_WORKING_DIR: '././GITHUBACTIONS-TERRAFORM'
+  TERRAFORM_WORKING_DIR: './'
 permissions:
   contents: write       # write permissions are needed in order to commit changes back to the branches/
   issues: write         # write permissions are needed in order to create comments
   id-token: write
 
-concurrency: dev-gbemigga    # This wills ensure only a single workflow of merge to master is run at a time
+concurrency: dev-gbemigga12    # This wills ensure only a single workflow of merge to master is run at a time
 jobs:
   kics:
     # Kics perform statics codes analysis of Infrastructure of Code (Terraform).
@@ -28,7 +28,7 @@ jobs:
       ENABLE_COMMENTS: true
       WORKING_DIRECTORY: './'
   plan:
-    name: "Terraform Init,Validate and Plan"
+    name: "Terraform Init,Validates and Plan"
     needs: [ kics ]
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-20.04
@@ -68,7 +68,7 @@ jobs:
         id: plan
         run: |
          terraform plan
-         terraform show tfplan
+         #terraform show tfplan
         continue-on-error: true
   apply:
     name: "Terraform Apply"
