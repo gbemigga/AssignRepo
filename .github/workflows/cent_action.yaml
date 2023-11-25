@@ -16,7 +16,9 @@ permissions:
   issues: write         # write permissions are needed in order to create comments
   id-token: write
 
+
 concurrency: dev-gbemigga   # This wills ensure only a single workflow of merge to master is run at a time
+
 jobs:
   kics:
     # Kics perform statics codes analysis of Infrastructure of Code (Terraform).

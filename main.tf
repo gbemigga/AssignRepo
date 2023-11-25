@@ -31,7 +31,7 @@ resource "aws_security_group" "demo_sg" {
   }
 }
 
-resource "aws_instance" "aws_ubuntu" {
+resource "aws_instance" "aws_ubuntu1234" {
   instance_type          = "t2.micro"
   ami                    = data.aws_ami.ubuntu.id
   user_data              = file("userdata.tpl")
