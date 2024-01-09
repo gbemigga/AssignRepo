@@ -17,7 +17,7 @@ permissions:
   id-token: write
 
 
-concurrency: dev-gbemigga1   # This wills ensure only a single workflow of merge to master is run at a time
+concurrency: dev-gbemigga12   # This wills ensure only a single workflow of merge to master is run at a time
 
 jobs:
   kics:
